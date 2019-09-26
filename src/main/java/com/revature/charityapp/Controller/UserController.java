@@ -1,12 +1,13 @@
-package com.revature.charityapp.Controller;
+package com.revature.charityapp.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.revature.Model.User;
-import com.revature.Services.UserService;
+import com.revature.exception.DBException;
+import com.revature.model.User;
+import com.revature.services.UserService;
 
 public class UserController {
-	
+
 	public static String login(String email, String password) {
 
 		String errorMessage = null;
@@ -15,7 +16,7 @@ public class UserController {
 		try {
 			user = userservice.findByNameAndPassword(email, password);
 			if (user == null) {
-				throw new Exception("Invalid data");
+				throw new DBException("Invalid data");
 			}
 		} catch (Exception e) {
 			errorMessage = e.getMessage();
@@ -40,51 +41,50 @@ public class UserController {
 	public static void main(String[] args) {
 
 		System.out.println("Test Case 1: Valid User");
-		String validUserJson = UserController.login("sha@gmail.com", "sha@123");
+		String validUserJson = UserController.login("sha@gmail.com", "Shalu@123");
 		System.out.println(validUserJson);
 
 		System.out.println("Test Case 2: Invalid User");
 		String invalidUserJson = UserController.login("invaliduser@gmail.com", "password");
 		System.out.println(invalidUserJson);
 
-		User user=new User();
-		 String json =UserController.register(user);
-		 System.out.println(json);
+		//String json = UserController.register("charu", "F", 26, "vichujh@gmail.com", 23658974,"Vichu@3458");
+		//System.out.println(json);
 
 	}
 
-	 public static String register(User user) {
-	  
-	  String errorMessage = null;
-	  UserService userservice = new UserService();  
-	   try { 
-		   User us=new User();
-	   us.setName(user.getName());
-	   us.setGender(user.getGender());
-	   us.setAge(user.getAge());
-	   us.setEmail(user.getEmail());
-	   us.setPhone(user.getPhone());
-	   us.setPassword(user.getPassword());
-	   us = userservice.registerNow(user); 
-	   if (us == null) { 
-	   throw new Exception("Invalid data"); 
-	   } 
-	   } catch (Exception e) { 
-	   errorMessage =e.getMessage(); }
-	  
-	  // Prepare JSON Object 
-	  String json = null; 
-	  Gson gson = new Gson(); 
-	  if (user!= null) { json = gson.toJson(user);
-	  
-	  } 
-	  else if (user == null) { 
-	  JsonObject obj = new JsonObject();
-	  obj.addProperty("errorMessage", errorMessage); json = obj.toString(); }
-	  
-	  return json;
-	  
-	  }
-	 
+	public static String register(String name, String gender, int age, String email, long phone, String password) {
+
+		String json = null;
+		String errorMessage = null;
+		UserService userservice = new UserService();
+		try {
+			User user = new User();
+			user.setName(name);
+			user.setGender(gender);
+			user.setAge(age);
+			user.setEmail(email);
+			user.setPhone(phone);
+			user.setPassword(password);
+			userservice.registerNow(user);
+			if (user == null) {
+				throw new Exception("Invalid data");
+			}
+		} catch (Exception e) {
+			errorMessage = e.getMessage();
+		}
+
+		// Prepare JSON Object
+		JsonObject obj = new JsonObject();
+		if (errorMessage != null) {
+			obj.addProperty("errorMessage", errorMessage);
+		} else {
+			obj.addProperty("message", "Successfully Inserted");
+		}
+
+		json = obj.toString();
+
+		return json;
+	}
 
 }

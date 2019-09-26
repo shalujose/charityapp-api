@@ -1,11 +1,11 @@
-package com.revature.charityapp.Controller;
+package com.revature.charityapp.controller;
 
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.revature.Model.Amount;
-import com.revature.Services.AdminService;
+import com.revature.model.Amount;
+import com.revature.services.AdminService;
 
 public class CloseRequestController {
 	

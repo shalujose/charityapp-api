@@ -8,61 +8,61 @@
   	<servlet-name>RegisterServlet</servlet-name>
   	<display-name>RegisterServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.RegisterServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
   	<display-name>LoginServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.LoginServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>AdminLoginServlet</servlet-name>
   	<display-name>AdminLoginServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.AdminLoginServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.AdminLoginServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>AddDonationRequestServlet</servlet-name>
   	<display-name>AddDonationRequestServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.AddDonationRequestServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.AddDonationRequestServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ViewRequestServlet</servlet-name>
   	<display-name>ViewRequestServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.ViewRequestServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.ViewRequestServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>DonateFundServlet</servlet-name>
   	<display-name>DonateFundServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.DonateFundServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.DonateFundServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ViewDonationResponseServlet</servlet-name>
   	<display-name>ViewDonationResponseServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.ViewDonationResponseServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.ViewDonationResponseServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>AddCategoryServlet</servlet-name>
   	<display-name>AddCategoryServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.AddCategoryServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.AddCategoryServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ViewCategoryServlet</servlet-name>
   	<display-name>ViewCategoryServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.ViewCategoryServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.ViewCategoryServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>CloseRequestServlet</servlet-name>
   	<display-name>CloseRequestServlet</display-name>
   	<description></description>
-  	<servlet-class>com.revature.charityapp.Servlet.CloseRequestServlet</servlet-class>
+  	<servlet-class>com.revature.charityapp.servlet.CloseRequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>

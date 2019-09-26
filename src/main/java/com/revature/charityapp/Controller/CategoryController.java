@@ -1,11 +1,11 @@
-package com.revature.charityapp.Controller;
+package com.revature.charityapp.controller;
 
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.revature.Model.Category;
-import com.revature.Services.AdminService;
+import com.revature.model.Category;
+import com.revature.services.AdminService;
 
 public class CategoryController {
 

@@ -1,13 +1,13 @@
-package com.revature.charityapp.Controller;
+package com.revature.charityapp.controller;
 
 
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.revature.Model.Request;
-import com.revature.Services.AdminService;
-import com.revature.Services.UserService;
+import com.revature.model.Request;
+import com.revature.services.AdminService;
+import com.revature.services.UserService;
 
 public class SendFundRequestController {
 	

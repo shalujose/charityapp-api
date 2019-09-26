@@ -1,9 +1,9 @@
-package com.revature.charityapp.Controller;
+package com.revature.charityapp.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.revature.Model.User;
-import com.revature.Services.AdminService;
+import com.revature.model.User;
+import com.revature.services.AdminService;
 
 public class AdminLoginController {
 

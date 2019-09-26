@@ -1,4 +1,4 @@
-package com.revature.charityapp.Servlet;
+package com.revature.charityapp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.charityapp.Controller.SendFundRequestController;
+import com.revature.charityapp.controller.SendFundRequestController;
 
 /**
  * Servlet implementation class AddDonationRequestServlet
@@ -20,13 +20,13 @@ public class AddDonationRequestServlet extends HttpServlet {
 		
 		//Get inputs
 				double amount = Double.parseDouble(request.getParameter("amount"));
-				int category_Id = Integer.parseInt(request.getParameter("category_Id"));
+				int categoryId = Integer.parseInt(request.getParameter("category_Id"));
 				  
 				
 				
 				//2. call controller
 				SendFundRequestController controller = new SendFundRequestController();		
-				String json = controller.sendRequest(category_Id, amount);
+				String json = controller.sendRequest(categoryId, amount);
 				
 				//3 . write
 				PrintWriter out = response.getWriter();

@@ -1,4 +1,4 @@
-package com.revature.charityapp.Servlet;
+package com.revature.charityapp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.charityapp.Controller.CloseRequestController;
+import com.revature.charityapp.controller.CloseRequestController;
 
 public class CloseRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

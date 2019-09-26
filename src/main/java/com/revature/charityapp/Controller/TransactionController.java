@@ -1,28 +1,28 @@
-package com.revature.charityapp.Controller;
+package com.revature.charityapp.controller;
 
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.revature.Model.Transaction;
-import com.revature.Services.AdminService;
-import com.revature.Services.UserService;
+import com.revature.model.Transaction;
+import com.revature.services.AdminService;
+import com.revature.services.UserService;
 
 public class TransactionController {
 	
-	public  String donateFundController(int fundrequest_id, int cate_id, int donor_id, double amount)
+	public  String donateFundController(int fundrequestId, int cateId, int donorId, double amount)
 	{
 		String json = null;
 		String errorMessage = null;
 		UserService userservice = new UserService();
 		try {
 			 Transaction transfer = new Transaction();
-			 transfer.setFundrequest_id(fundrequest_id);
-			 transfer.setCate_id(cate_id);
-			 transfer.setDonor_id(donor_id);
+			 transfer.setFundrequestId(fundrequestId);
+			 transfer.setCategoryId(cateId);
+			 transfer.setDonorId(donorId);
 			 transfer.setAmount(amount);
 			 
-			userservice.donateFundService(fundrequest_id, cate_id, donor_id, amount);
+			userservice.donateFundService(fundrequestId, cateId, donorId, amount);
 		} catch (Exception e) {
 			errorMessage = e.getMessage();
 		}

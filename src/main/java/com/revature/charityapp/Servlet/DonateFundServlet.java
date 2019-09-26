@@ -1,4 +1,4 @@
-package com.revature.charityapp.Servlet;
+package com.revature.charityapp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.charityapp.Controller.TransactionController;
+import com.revature.charityapp.controller.TransactionController;
 
 /**
  * Servlet implementation class DonateFundServlet
@@ -19,15 +19,15 @@ public class DonateFundServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		double amount = Double.parseDouble(request.getParameter("amount"));
-		int fundrequest_id = Integer.parseInt(request.getParameter("fundrequest_id"));
-		int cate_id = Integer.parseInt(request.getParameter("cate_id"));
-		int donor_id = Integer.parseInt(request.getParameter("donor_id"));
+		int fundrequestId = Integer.parseInt(request.getParameter("fundrequest_id"));
+		int cateId = Integer.parseInt(request.getParameter("cate_id"));
+		int donorId = Integer.parseInt(request.getParameter("donor_id"));
 		  
 		
 		
 		//2. call controller
 		TransactionController controller = new TransactionController();		
-		String json = controller.donateFundController(fundrequest_id, cate_id, donor_id, amount);
+		String json = controller.donateFundController(fundrequestId, cateId, donorId, amount);
 		
 		//3 . write
 		PrintWriter out = response.getWriter();

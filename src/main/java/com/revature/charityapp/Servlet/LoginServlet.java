@@ -1,4 +1,4 @@
-package com.revature.charityapp.Servlet;
+package com.revature.charityapp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.charityapp.Controller.UserController;
+import com.revature.charityapp.controller.UserController;
 
 
 public class LoginServlet extends HttpServlet {
@@ -23,7 +23,6 @@ public class LoginServlet extends HttpServlet {
 	        out.write(json);        
 	        out.flush();
 	        
-	       // response.sendRedirect("donorFeatures.jsp");
 	            
 	}
 }
