@@ -20,14 +20,13 @@ public class DonateFundServlet extends HttpServlet {
 		
 		double amount = Double.parseDouble(request.getParameter("amount"));
 		int fundrequestId = Integer.parseInt(request.getParameter("fundrequest_id"));
-		int cateId = Integer.parseInt(request.getParameter("cate_id"));
 		int donorId = Integer.parseInt(request.getParameter("donor_id"));
 		  
 		
 		
 		//2. call controller
 		TransactionController controller = new TransactionController();		
-		String json = controller.donateFundController(fundrequestId, cateId, donorId, amount);
+		String json = controller.donateFundController(fundrequestId, donorId, amount);
 		
 		//3 . write
 		PrintWriter out = response.getWriter();
