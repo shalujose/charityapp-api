@@ -4,18 +4,24 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.revature.exception.ServiceException;
 import com.revature.model.Amount;
 import com.revature.services.AdminService;
 
 public class CloseRequestController {
 	
+	AdminService adminservice=new AdminService();
 public  String closeRequest(){
 		
 		String json = null;
 		List<Amount> viewResponse = null;
 		String errorMessage = null;
 		AdminService adminservice=new AdminService();
-		viewResponse = adminservice.closeRequest();
+		try {
+			viewResponse = adminservice.closeRequest();
+		} catch (ServiceException e) {
+			errorMessage=e.getMessage();
+		}
 		
 		//Convert list to json
 		if ( viewResponse != null) {

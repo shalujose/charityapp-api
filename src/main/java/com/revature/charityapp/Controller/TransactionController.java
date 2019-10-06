@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.revature.exception.ServiceException;
 import com.revature.model.Transaction;
 import com.revature.services.AdminService;
 import com.revature.services.UserService;
@@ -21,7 +22,7 @@ public class TransactionController {
 			transfer.setAmount(amount);
 
 			userservice.donateFundService(fundrequestId, donorId, amount);
-		} catch (Exception e) {
+		} catch (ServiceException e) {
 			errorMessage = e.getMessage();
 		}
 
@@ -39,9 +40,10 @@ public class TransactionController {
 
 	public static void main(String[] args) {
 		TransactionController controller = new TransactionController();
-		//String json = controller.donateFundController(1, 2, 1000);
-		String json=controller.viewResponse();
+		String json = controller.donateFundController(1, 3, 1000);
+		String json1 = controller.viewResponse();
 		System.out.println(json);
+		System.out.println(json1);
 	}
 
 	public String viewResponse() {
@@ -50,7 +52,11 @@ public class TransactionController {
 		List<Transaction> viewResponse = null;
 		String errorMessage = null;
 		AdminService adminservice = new AdminService();
-		viewResponse = adminservice.viewResponse();
+		try {
+			viewResponse = adminservice.viewResponse();
+		} catch (ServiceException e) {
+			errorMessage = e.getMessage();
+		}
 
 		// Convert list to json
 		if (viewResponse != null) {

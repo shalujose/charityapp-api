@@ -2,6 +2,7 @@ package com.revature.charityapp.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.revature.exception.ServiceException;
 import com.revature.model.User;
 import com.revature.services.AdminService;
 
@@ -15,9 +16,9 @@ public class AdminLoginController {
 		try {
 			user = adminservice.findByAdminNameAndPassword(name, password);
 			if (user == null) {
-				throw new Exception("Invalid data");
+				throw new ServiceException("Invalid data");
 			}
-		} catch (Exception e) {
+		} catch (ServiceException e) {
 			errorMessage = e.getMessage();
 		}
 

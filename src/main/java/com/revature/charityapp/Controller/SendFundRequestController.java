@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.revature.exception.ServiceException;
 import com.revature.model.Request;
 import com.revature.services.AdminService;
 import com.revature.services.UserService;
@@ -41,12 +42,12 @@ public class SendFundRequestController {
 
 	public static void main(String[] args) {
 		SendFundRequestController controller = new SendFundRequestController();
-		//String json = controller.sendRequest(1,10000);
-		//System.out.println(json);
-		
-		//SendFundRequestController controller = new SendFundRequestController();
-		String json = controller.viewRequest();
+		String json = controller.sendRequest(1,10000);
 		System.out.println(json);
+		
+		SendFundRequestController controller1 = new SendFundRequestController();
+		String json1 = controller1.viewRequest();
+		System.out.println(json1);
 	}
 	
 public  String viewRequest(){
@@ -55,7 +56,12 @@ public  String viewRequest(){
 		List<Request> viewRequest = null;
 		String errorMessage = null;
 		UserService userservice=new UserService();
-		viewRequest = userservice.viewRequest();
+		try {
+			viewRequest = userservice.viewRequest();
+		} 
+		catch (ServiceException e) {
+			errorMessage=e.getMessage();
+		}
 		
 		//Convert list to json
 		if ( viewRequest != null) {

@@ -2,7 +2,7 @@ package com.revature.charityapp.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.revature.exception.DBException;
+import com.revature.exception.ServiceException;
 import com.revature.model.User;
 import com.revature.services.UserService;
 
@@ -16,9 +16,9 @@ public class UserController {
 		try {
 			user = userservice.findByNameAndPassword(email, password);
 			if (user == null) {
-				throw new DBException("Invalid data");
+				throw new ServiceException("Invalid data");
 			}
-		} catch (Exception e) {
+		} catch (ServiceException e) {
 			errorMessage = e.getMessage();
 		}
 
@@ -48,8 +48,8 @@ public class UserController {
 		String invalidUserJson = UserController.login("invaliduser@gmail.com", "password");
 		System.out.println(invalidUserJson);
 
-		//String json = UserController.register("charu", "F", 26, "vichujh@gmail.com", 23658974,"Vichu@3458");
-		//System.out.println(json);
+		String json = UserController.register("shalu", "F", 24, "sha@gmail.com", 23658974,"Shalu@123");
+		System.out.println(json);
 
 	}
 
@@ -67,10 +67,8 @@ public class UserController {
 			user.setPhone(phone);
 			user.setPassword(password);
 			userservice.registerNow(user);
-			if (user == null) {
-				throw new Exception("Invalid data");
-			}
-		} catch (Exception e) {
+			
+		} catch (ServiceException e) {
 			errorMessage = e.getMessage();
 		}
 
